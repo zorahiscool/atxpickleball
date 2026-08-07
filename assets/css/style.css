@@ -544,6 +544,38 @@ table.standings { width: 100%; border-collapse: collapse; font-family: var(--fon
 table.standings th, table.standings td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
 table.standings th { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem; color: var(--ink-soft); }
 
+/* ---------- match schedule (inside the tournament pop-up) ---------- */
+.modal-schedule { margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--line); }
+.modal-schedule-title { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 1.05rem; margin: 0 0 4px; }
+.schedule-note { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); margin: 0 0 16px; }
+.schedule-round { margin-bottom: 16px; }
+.schedule-round:last-child { margin-bottom: 0; }
+.schedule-round-time {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--court);
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+table.schedule-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.schedule-table td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.schedule-table td:first-child {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  width: 1%;
+}
+.schedule-vs { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-soft); margin: 0 6px; }
+
 /* ---------- about / how-it-works ---------- */
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 6px; }
 .step-num { font-family: var(--font-display); font-weight: 900; font-size: 2.2rem; color: var(--court); opacity: 0.5; line-height: 1; }
