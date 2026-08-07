@@ -393,7 +393,42 @@ function buildTournamentModalHtml(t) {
     <div class="modal-signup-row">${signupRow}</div>
     ${statusBanner}
     <div class="modal-notes">${description}${notes}</div>
+    ${scheduleHtml(t.schedule)}
     ${embedBlock}
+  `;
+}
+
+// Renders the "First-Round Schedule" block inside a tournament's pop-up,
+// built from the optional `schedule` field in data.js (see HOW-TO-UPDATE.md).
+// Returns "" if the tournament has no schedule set, so this can always be
+// dropped into the modal HTML unconditionally.
+function scheduleHtml(schedule) {
+  if (!schedule || !schedule.rounds || !schedule.rounds.length) return "";
+
+  const note = schedule.note ? `<p class="schedule-note">${escapeHtml(schedule.note)}</p>` : "";
+
+  const rounds = schedule.rounds.map(r => `
+    <div class="schedule-round">
+      <div class="schedule-round-time">${escapeHtml(r.time)}</div>
+      <table class="schedule-table">
+        <tbody>
+          ${r.matches.map(m => `
+            <tr>
+              <td>Court ${escapeHtml(String(m.court))}</td>
+              <td>${escapeHtml(m.team1)}<span class="schedule-vs">vs</span>${escapeHtml(m.team2)}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `).join("");
+
+  return `
+    <div class="modal-schedule">
+      <h3 class="modal-schedule-title">🗓️ First-Round Schedule</h3>
+      ${note}
+      ${rounds}
+    </div>
   `;
 }
 

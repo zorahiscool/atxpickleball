@@ -125,7 +125,7 @@ const TOURNAMENTS = [
     location: "Andrews, TX Pickleball Courts",
     format: "Doubles",
     teamsLimit: 32,
-    teamsRegistered: 19,               // how many teams signed up, out of teamsLimit — shows as "X/Y teams" wherever this tournament appears
+    teamsRegistered: 20,               // how many teams signed up, out of teamsLimit — shows as "X/Y teams" wherever this tournament appears
     description: "This is a doubles tournament hosted by JB Productions",
     signupUrl: null,   // use this OR signupEmbed, not both
     signupEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSfNFXLJHYspUglWP-Jmmj4C8QFT7SYpGcJzEnk9lx3MsOzJew/viewform?embedded=true",   // e.g. "https://docs.google.com/forms/d/e/xxxxx/viewform?embedded=true" — shows inside the pop-up when someone taps "Sign Up Your Team"
@@ -135,6 +135,46 @@ const TOURNAMENTS = [
        "Prizes will be awarded for 1st, 2nd, and 3rd place.\n\n" +
        "All other rules can be found on the Rules page at the top right of the website.\n\n" +
        "Please reach out if you have any questions!",
+
+    // ---- FIRST-ROUND SCHEDULE -------------------------------------
+    // Shows up as a "First-Round Schedule" section in this tournament's
+    // pop-up. See HOW-TO-UPDATE.md for how to edit this for next time.
+    schedule: {
+      note: "First-round matchups only — after that, follow your bracket on Scoreholio for your next match and court.",
+      rounds: [
+        {
+          time: "8:45 AM",
+          matches: [
+            { court: 1, team1: "Tickle My Pickle", team2: "Joe Barnes / Bryce Vasquez" },
+            { court: 2, team1: "Selena Martinez / Aaron Wiederstein", team2: "Hayden Loewen / Corbyn Neufeld" },
+            { court: 3, team1: "JB Productions", team2: "Pickle Ticklers" }
+          ]
+        },
+        {
+          time: "9:25 AM",
+          matches: [
+            { court: 1, team1: "Cedar Recker / Rylan Reames", team2: "Angel x2" },
+            { court: 2, team1: "Ballhards", team2: "Slept On" },
+            { court: 3, team1: "Dinkin Divas", team2: "Team Delgado" }
+          ]
+        },
+        {
+          time: "10:05 AM",
+          matches: [
+            { court: 1, team1: "Moose and Ashur", team2: "Milo Sellers / Dax Morgan" },
+            { court: 2, team1: "PFPB", team2: "Cole Ivison / Nomar Gomez" },
+            { court: 3, team1: "Shake n Bake", team2: "Court Crushers" }
+          ]
+        },
+        {
+          time: "10:45 AM",
+          matches: [
+            { court: 1, team1: "Surfers", team2: "Trace Garcia / Jace Mcgrough" }
+          ]
+        }
+      ]
+    },
+
     results: {
       summary: "",
       champions: null,   // { team: "...", players: ["...", "..."], photo: "assets/img/results/your-id/first.jpg" }
