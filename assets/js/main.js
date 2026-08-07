@@ -321,6 +321,7 @@ function renderCardGrid(mount, list) {
         <p>${escapeHtml(t.description || "")}</p>
         <div class="card-actions">
           ${signupButtonHtml(t)}
+          ${hasSchedule(t) ? `<button type="button" class="btn btn-outline btn-small js-view-schedule">🗓️ View Schedule</button>` : ""}
           <button type="button" class="btn btn-outline btn-small js-view-details">Details</button>
         </div>
       </article>
@@ -347,9 +348,17 @@ function renderCardGrid(mount, list) {
     const detailsBtn = card.querySelector(".js-view-details");
     if (detailsBtn) detailsBtn.addEventListener("click", () => openTournamentModal(t));
 
+    const scheduleBtn = card.querySelector(".js-view-schedule");
+    if (scheduleBtn) scheduleBtn.addEventListener("click", () => openTournamentModal(t, { scrollToSchedule: true }));
+
     const embedBtn = card.querySelector(".js-card-signup-embed");
     if (embedBtn) embedBtn.addEventListener("click", () => openTournamentModal(t, { showEmbed: true }));
   });
+}
+
+// True if a tournament has at least one scheduled match to show.
+function hasSchedule(t) {
+  return !!(t.schedule && t.schedule.rounds && t.schedule.rounds.length);
 }
 
 // Builds the pop-up content for a single tournament: name, quick facts, a
@@ -400,8 +409,11 @@ function buildTournamentModalHtml(t) {
 
 // Renders the "First-Round Schedule" block inside a tournament's pop-up,
 // built from the optional `schedule` field in data.js (see HOW-TO-UPDATE.md).
-// Returns "" if the tournament has no schedule set, so this can always be
-// dropped into the modal HTML unconditionally.
+// Each match's team1/team2 can be a plain string, or an object like
+// { players: "Jane D. & Sam R.", teamName: "Kitchen Crashers" } to show the
+// actual players' names with their team name in parentheses. Returns "" if
+// the tournament has no schedule set, so this can always be dropped into
+// the modal HTML unconditionally.
 function scheduleHtml(schedule) {
   if (!schedule || !schedule.rounds || !schedule.rounds.length) return "";
 
@@ -415,7 +427,7 @@ function scheduleHtml(schedule) {
           ${r.matches.map(m => `
             <tr>
               <td>Court ${escapeHtml(String(m.court))}</td>
-              <td>${escapeHtml(m.team1)}<span class="schedule-vs">vs</span>${escapeHtml(m.team2)}</td>
+              <td>${scheduleEntryHtml(m.team1)}<span class="schedule-vs">vs</span>${scheduleEntryHtml(m.team2)}</td>
             </tr>
           `).join("")}
         </tbody>
@@ -424,12 +436,23 @@ function scheduleHtml(schedule) {
   `).join("");
 
   return `
-    <div class="modal-schedule">
+    <div class="modal-schedule" id="modal-schedule-section">
       <h3 class="modal-schedule-title">🗓️ First-Round Schedule</h3>
       ${note}
       ${rounds}
     </div>
   `;
+}
+
+// Formats one side of a match. Accepts either a plain string (just shown
+// as-is) or { players, teamName } to show the players' real names with
+// their team name in parentheses, e.g. "Jane D. & Sam R. (Kitchen Crashers)".
+function scheduleEntryHtml(entry) {
+  if (!entry) return "";
+  if (typeof entry === "string") return escapeHtml(entry);
+  const players = escapeHtml(entry.players || "");
+  const teamName = entry.teamName ? ` <span class="schedule-team-name">(${escapeHtml(entry.teamName)})</span>` : "";
+  return `${players}${teamName}`;
 }
 
 function openTournamentModal(t, opts) {
@@ -448,6 +471,13 @@ function openTournamentModal(t, opts) {
     if (opts.showEmbed) {
       embed.style.display = "block";
       toggleBtn.textContent = "Hide Form ↑";
+    }
+  }
+
+  if (opts.scrollToSchedule) {
+    const section = overlay.querySelector("#modal-schedule-section");
+    if (section) {
+      setTimeout(() => section.scrollIntoView({ behavior: "smooth", block: "start" }), 320);
     }
   }
 }

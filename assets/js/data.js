@@ -138,38 +138,62 @@ const TOURNAMENTS = [
 
     // ---- FIRST-ROUND SCHEDULE -------------------------------------
     // Shows up as a "First-Round Schedule" section in this tournament's
-    // pop-up. See HOW-TO-UPDATE.md for how to edit this for next time.
+    // pop-up (and there's a "View Schedule" button on the card that jumps
+    // straight to it). See HOW-TO-UPDATE.md for how to edit this for next
+    // time. Each side of a match can be a plain string, or
+    // { players: "...", teamName: "..." } to show real names with the
+    // team name in parentheses.
     schedule: {
       note: "First-round matchups only — after that, follow your bracket on Scoreholio for your next match and court.",
       rounds: [
         {
           time: "8:45 AM",
           matches: [
-            { court: 1, team1: "Tickle My Pickle", team2: "Joe Barnes / Bryce Vasquez" },
-            { court: 2, team1: "Selena Martinez / Aaron Wiederstein", team2: "Hayden Loewen / Corbyn Neufeld" },
-            { court: 3, team1: "JB Productions", team2: "Pickle Ticklers" }
+            { court: 1,
+              team1: { players: "JP Espinosa & Marc Espinosa", teamName: "Tickle My Pickle" },
+              team2: { players: "Joe Barnes & Bryce Vasquez", teamName: null } },
+            { court: 2,
+              team1: { players: "Selena Martinez & Aaron Wiederstein", teamName: null },
+              team2: { players: "Hayden Loewen & Corbyn Neufeld", teamName: null } },
+            { court: 3,
+              team1: { players: "Angel Ramos & Angel Flores", teamName: "Angel x2" },
+              team2: { players: "Brycen Diaz & Juan Hernandez", teamName: "Pickle Ticklers" } }
           ]
         },
         {
           time: "9:25 AM",
           matches: [
-            { court: 1, team1: "Cedar Recker / Rylan Reames", team2: "Angel x2" },
-            { court: 2, team1: "Ballhards", team2: "Slept On" },
-            { court: 3, team1: "Dinkin Divas", team2: "Team Delgado" }
+            { court: 1,
+              team1: { players: "Justin Bailey & Jordyn Bailey", teamName: "JB Productions" },
+              team2: { players: "Xavior Kidd & Justin Moore", teamName: "Slept On" } },
+            { court: 2,
+              team1: { players: "Cedar Recker & Rylan Reames", teamName: null },
+              team2: { players: "Danny Delgado & Joshua Delgado", teamName: "Team Delgado" } },
+            { court: 3,
+              team1: { players: "Julian Mancillas & Gehrig Morris", teamName: "Ballhards" },
+              team2: { players: "Milo Sellers & Dax Morgan", teamName: null } }
           ]
         },
         {
           time: "10:05 AM",
           matches: [
-            { court: 1, team1: "Moose and Ashur", team2: "Milo Sellers / Dax Morgan" },
-            { court: 2, team1: "PFPB", team2: "Cole Ivison / Nomar Gomez" },
-            { court: 3, team1: "Shake n Bake", team2: "Court Crushers" }
+            { court: 1,
+              team1: { players: "Vicki Townsend & Holly Conyers", teamName: "Dinkin Divas" },
+              team2: { players: "Cole Ivison & Nomar Gomez", teamName: null } },
+            { court: 2,
+              team1: { players: "Ashur Tellez & John Brus", teamName: "Moose and Ashur" },
+              team2: { players: "Annika Armendariz & Connor Hendricks", teamName: "Court Crushers" } },
+            { court: 3,
+              team1: { players: "Maverick Torres & Eddie Herrera", teamName: "PFPB" },
+              team2: { players: "Luii & Servando Olivas", teamName: "Surfers" } }
           ]
         },
         {
           time: "10:45 AM",
           matches: [
-            { court: 1, team1: "Surfers", team2: "Trace Garcia / Jace Mcgrough" }
+            { court: 1,
+              team1: { players: "Daniel Montoya & Jonathan Figueroa", teamName: "Shake n Bake" },
+              team2: { players: "Trace Garcia & Jace Mcgrough", teamName: null } }
           ]
         }
       ]

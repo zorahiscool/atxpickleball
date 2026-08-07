@@ -72,10 +72,12 @@ In Google Forms, click **Send → the `<>` embed icon**, copy the `src="..."` li
 
 If you want players to see who they're playing first, and on which court/at
 what time, add a `schedule` block to that tournament in `assets/js/data.js`.
-It shows up as a "First-Round Schedule" section inside that tournament's
-pop-up, underneath the details. This is just a schedule — it doesn't run a
-bracket for you, so it pairs well with an app like Scoreholio for tracking
-who advances after round 1.
+It shows up as a "🗓️ First-Round Schedule" section inside that tournament's
+pop-up, underneath the details — and a **"View Schedule" button appears
+automatically on that tournament's card** so people can jump straight to it
+without having to scroll through Details first. This is just a schedule —
+it doesn't run a bracket for you, so it pairs well with an app like
+Scoreholio for tracking who advances after round 1.
 
 ```js
 schedule: {
@@ -84,15 +86,20 @@ schedule: {
     {
       time: "8:45 AM",
       matches: [
-        { court: 1, team1: "Team A", team2: "Team B" },
-        { court: 2, team1: "Team C", team2: "Team D" },
-        { court: 3, team1: "Team E", team2: "Team F" }
+        { court: 1,
+          team1: { players: "Jane Doe & Sam Rivera", teamName: "Kitchen Crashers" },
+          team2: { players: "Alex Park & Casey Kim", teamName: null } },
+        { court: 2,
+          team1: { players: "Player A & Player B", teamName: null },
+          team2: { players: "Player C & Player D", teamName: "Dink or Swim" } }
       ]
     },
     {
       time: "9:25 AM",
       matches: [
-        { court: 1, team1: "Team G", team2: "Team H" }
+        { court: 1,
+          team1: { players: "Player E & Player F", teamName: null },
+          team2: { players: "Player G & Player H", teamName: null } }
       ]
     }
   ]
@@ -104,10 +111,15 @@ schedule: {
   you don't want one.
 - Each item in `rounds` is one time slot — give it a `time` and a list of
   `matches` happening at that time, one per court.
+- Each side of a match (`team1` / `team2`) shows the players' actual names.
+  If the team also has a team name, add it as `teamName` and it'll show in
+  parentheses after the names, e.g. "Jane Doe & Sam Rivera (Kitchen
+  Crashers)". If there's no team name, set `teamName: null`.
 - To figure out how many rounds you need: (number of teams ÷ 2) ÷ number of
   courts, rounded up. E.g. 20 teams = 10 matches; on 3 courts that's 4 rounds.
 - Leave the `schedule` field out entirely (or delete the block) for
-  tournaments where you don't want a schedule shown.
+  tournaments where you don't want a schedule shown (or a "View Schedule"
+  button on the card).
 
 ---
 
