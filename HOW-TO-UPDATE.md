@@ -68,6 +68,49 @@ In Google Forms, click **Send → the `<>` embed icon**, copy the `src="..."` li
 
 ---
 
+## Add a first-round match schedule (courts & times)
+
+If you want players to see who they're playing first, and on which court/at
+what time, add a `schedule` block to that tournament in `assets/js/data.js`.
+It shows up as a "First-Round Schedule" section inside that tournament's
+pop-up, underneath the details. This is just a schedule — it doesn't run a
+bracket for you, so it pairs well with an app like Scoreholio for tracking
+who advances after round 1.
+
+```js
+schedule: {
+  note: "First-round matchups only — after that, follow your bracket on Scoreholio for your next match and court.",
+  rounds: [
+    {
+      time: "8:45 AM",
+      matches: [
+        { court: 1, team1: "Team A", team2: "Team B" },
+        { court: 2, team1: "Team C", team2: "Team D" },
+        { court: 3, team1: "Team E", team2: "Team F" }
+      ]
+    },
+    {
+      time: "9:25 AM",
+      matches: [
+        { court: 1, team1: "Team G", team2: "Team H" }
+      ]
+    }
+  ]
+}
+```
+
+- `note` is optional free text shown above the schedule (e.g. pointing people
+  to Scoreholio, or explaining pool play). Leave it out (delete the line) if
+  you don't want one.
+- Each item in `rounds` is one time slot — give it a `time` and a list of
+  `matches` happening at that time, one per court.
+- To figure out how many rounds you need: (number of teams ÷ 2) ÷ number of
+  courts, rounded up. E.g. 20 teams = 10 matches; on 3 courts that's 4 rounds.
+- Leave the `schedule` field out entirely (or delete the block) for
+  tournaments where you don't want a schedule shown.
+
+---
+
 ## Close sign-ups for a tournament
 
 Change that tournament's `status` from `"upcoming"` to `"closed"`. It'll still show on the Tournaments page, but the sign-up button will read "Registration Closed."
