@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrews TX Pickleball — Tournament Hub</title>
+<meta name="description" content="The home for pickleball tournaments in Andrews, Texas. See what's coming up, sign your team up, and browse results from past tournaments.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home">
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.svg" alt="">
+      <span class="brand-text">Andrews TX<small>Pickleball</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="tournaments.html">Tournaments</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="rules.html">Rules</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="court-divider"></div>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-inner">
+      <span class="eyebrow">Pickleball Tournaments</span>
+      <h1>Andrews Texas Pickleball</h1>
+      <p class="hero-sub">Everything happening on the courts in Andrews, TX — find upcoming tournaments and sign your team up, or look back at who's taken home the trophy in past events.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="tournaments.html">View All Tournaments</a>
+      </div>
+    </div>
+
+    <div class="hero-photo" id="hero-photo-mount">
+      <!-- filled by main.js -->
+    </div>
+  </div>
+</section>
+
+<div class="court-divider"></div>
+
+<section class="section" style="padding-bottom: 0;">
+  <div class="wrap">
+    <div class="scoreboard" id="scoreboard-mount">
+      <!-- filled by main.js -->
+    </div>
+  </div>
+</section>
+
+<div class="court-divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="steps">
+      <div>
+        <div class="step-num">01</div>
+        <h3>Find a tournament</h3>
+        <p>Check the schedule for what's coming up — date, location, format, and how many spots are left.</p>
+      </div>
+      <div>
+        <div class="step-num">02</div>
+        <h3>Sign up your team</h3>
+        <p>Hit sign up, fill out the form, and you're in. We'll follow up with anything you still owe us.</p>
+      </div>
+      <div>
+        <div class="step-num">03</div>
+        <h3>Show up and play</h3>
+        <p>Play your matches, chase the trophy, and check back here afterward for the final standings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="court-divider"></div>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">What's Coming Up</span>
+        <h2>Upcoming Tournaments</h2>
+      </div>
+      <a class="btn btn-outline" href="tournaments.html">Full Schedule</a>
+    </div>
+    <div class="card-grid" id="upcoming-preview"></div>
+    <div class="empty-state" id="upcoming-empty" style="display:none;">
+      <strong>Nothing on the calendar yet</strong>
+      No tournaments are scheduled right now — follow us on Instagram and we'll post the next one first.
+    </div>
+  </div>
+</section>
+
+<div class="court-divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">The Record Books</span>
+        <h2>Recent Results</h2>
+      </div>
+      <a class="btn btn-outline" href="results.html">All Results</a>
+    </div>
+    <div class="card-grid" id="results-preview"></div>
+    <div class="empty-state" id="results-empty" style="display:none;">
+      <strong>No tournaments finished yet</strong>
+      Once the first one wraps up, the results will show up right here.
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">Andrews TX Pickleball</div>
+      <div class="footer-meta">Andrews, Texas · Built for the love of the dink.</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://www.instagram.com/andrewstxpickleball/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="tournaments.html">Tournaments</a></li>
+      <li><a href="results.html">Results</a></li>
+    </ul>
+  </div>
+</footer>
+
+<a class="contact-fab" href="https://www.instagram.com/andrewstxpickleball/" target="_blank" rel="noopener" aria-label="Questions? Contact us on Instagram">
+  <span class="contact-fab-bubble">Questions? Contact Us</span>
+  <span class="contact-fab-circle">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
