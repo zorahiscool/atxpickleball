@@ -167,7 +167,7 @@ const TOURNAMENTS = [
     location: "Andrews, TX Pickleball Courts",
     format: "Doubles",
     teamsLimit: 32,
-    teamsRegistered: 0,                // how many teams signed up, out of teamsLimit — shows as "X/Y teams" wherever this tournament appears
+    teamsRegistered: 1,                // how many teams signed up, out of teamsLimit — shows as "X/Y teams" wherever this tournament appears
     description: "This is a doubles tournament for charity, hosted by Andrews Animal Shelter",
     signupUrl: null,   // use this OR signupEmbed, not both
     signupEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSd6J0VEAyuHK5rMOVBvWkFqhlYRXp-tmE0a4z-vsdcTX8cdYg/viewform?embedded=true",   // e.g. "https://docs.google.com/forms/d/e/xxxxx/viewform?embedded=true" — shows inside the pop-up when someone taps "Sign Up Your Team"
