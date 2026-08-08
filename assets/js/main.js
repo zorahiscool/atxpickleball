@@ -440,6 +440,7 @@ function scheduleHtml(schedule) {
       <h3 class="modal-schedule-title">🗓️ First-Round Schedule</h3>
       ${note}
       ${rounds}
+      ${byesHtml(schedule)}
     </div>
   `;
 }
@@ -453,6 +454,22 @@ function scheduleEntryHtml(entry) {
   const players = escapeHtml(entry.players || "");
   const teamName = entry.teamName ? ` <span class="schedule-team-name">(${escapeHtml(entry.teamName)})</span>` : "";
   return `${players}${teamName}`;
+}
+
+// Renders the "First-Round Byes" list inside a tournament's pop-up — teams
+// who skip Round 1 entirely and advance straight to Round 2 (used when the
+// team count isn't a clean bracket size, see HOW-TO-UPDATE.md). Accepts the
+// same string OR { players, teamName } format as match entries.
+function byesHtml(schedule) {
+  if (!schedule || !schedule.byes || !schedule.byes.length) return "";
+  const items = schedule.byes.map(b => `<li>${scheduleEntryHtml(b)}</li>`).join("");
+  return `
+    <div class="modal-byes">
+      <h4 class="modal-byes-title">🎟️ First-Round Byes</h4>
+      <p class="schedule-note">These teams don't play Round 1 — they advance straight to Round 2. Watch Scoreholio for your Round 2 time and court.</p>
+      <ul class="byes-list">${items}</ul>
+    </div>
+  `;
 }
 
 function openTournamentModal(t, opts) {

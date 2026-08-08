@@ -125,7 +125,7 @@ const TOURNAMENTS = [
     location: "Andrews, TX Pickleball Courts",
     format: "Doubles",
     teamsLimit: 32,
-    teamsRegistered: 20,               // how many teams signed up, out of teamsLimit — shows as "X/Y teams" wherever this tournament appears
+    teamsRegistered: 23,               // how many teams signed up, out of teamsLimit — shows as "X/Y teams" wherever this tournament appears
     description: "This is a doubles tournament hosted by JB Productions",
     signupUrl: null,   // use this OR signupEmbed, not both
     signupEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSfNFXLJHYspUglWP-Jmmj4C8QFT7SYpGcJzEnk9lx3MsOzJew/viewform?embedded=true",   // e.g. "https://docs.google.com/forms/d/e/xxxxx/viewform?embedded=true" — shows inside the pop-up when someone taps "Sign Up Your Team"
@@ -137,65 +137,62 @@ const TOURNAMENTS = [
        "Please reach out if you have any questions!",
 
     // ---- FIRST-ROUND SCHEDULE -------------------------------------
-    // Shows up as a "First-Round Schedule" section in this tournament's
-    // pop-up (and there's a "View Schedule" button on the card that jumps
-    // straight to it). See HOW-TO-UPDATE.md for how to edit this for next
-    // time. Each side of a match can be a plain string, or
-    // { players: "...", teamName: "..." } to show real names with the
-    // team name in parentheses.
+    // 23 teams isn't a clean bracket size, so this round uses byes (see
+    // HOW-TO-UPDATE.md — "byes" is a list below "rounds" for teams that
+    // skip straight to Round 2). Round 1 is mostly same-skill matchups
+    // (Beginner vs Beginner, Intermediate vs Intermediate) with one
+    // Advanced-vs-Intermediate match — never Beginner vs Advanced.
     schedule: {
-      note: "First-round matchups only — after that, follow your bracket on Scoreholio for your next match and court.",
+      note: "Round 1 only — after this, follow your bracket on Scoreholio for your next match, time, and court.",
       rounds: [
         {
-          time: "8:45 AM",
-          matches: [
-            { court: 1,
-              team1: { players: "JP Espinosa & Marc Espinosa", teamName: "Tickle My Pickle" },
-              team2: { players: "Joe Barnes & Bryce Vasquez", teamName: null } },
-            { court: 2,
-              team1: { players: "Selena Martinez & Aaron Wiederstein", teamName: null },
-              team2: { players: "Hayden Loewen & Corbyn Neufeld", teamName: null } },
-            { court: 3,
-              team1: { players: "Angel Ramos & Angel Flores", teamName: "Angel x2" },
-              team2: { players: "Brycen Diaz & Juan Hernandez", teamName: "Pickle Ticklers" } }
-          ]
-        },
-        {
-          time: "9:25 AM",
+          time: "9:00 AM",
           matches: [
             { court: 1,
               team1: { players: "Justin Bailey & Jordyn Bailey", teamName: "JB Productions" },
-              team2: { players: "Xavior Kidd & Justin Moore", teamName: "Slept On" } },
+              team2: { players: "Cedar Recker & Rylan Reames", teamName: null } },
             { court: 2,
-              team1: { players: "Cedar Recker & Rylan Reames", teamName: null },
-              team2: { players: "Danny Delgado & Joshua Delgado", teamName: "Team Delgado" } },
-            { court: 3,
               team1: { players: "Julian Mancillas & Gehrig Morris", teamName: "Ballhards" },
+              team2: { players: "Vicki Townsend & Holly Conyers", teamName: "Dinkin Divas" } },
+            { court: 3,
+              team1: { players: "Ashur Tellez & John Brus", teamName: "Moose and Ashur" },
+              team2: { players: "Maverick Torres & Eddie Herrera", teamName: "PFPB" } }
+          ]
+        },
+        {
+          time: "9:35 AM",
+          matches: [
+            { court: 1,
+              team1: { players: "Daniel Montoya & Jonathan Figueroa", teamName: "Shake n Bake" },
+              team2: { players: "Trace Garcia & Jace Mcgrough", teamName: null } },
+            { court: 2,
+              team1: { players: "Brycen Diaz & Juan Hernandez", teamName: "Pickle Ticklers" },
+              team2: { players: "Xavior Kidd & Justin Moore", teamName: "Slept On" } },
+            { court: 3,
+              team1: { players: "Danny Delgado & Joshua Delgado", teamName: "Team Delgado" },
               team2: { players: "Milo Sellers & Dax Morgan", teamName: null } }
           ]
         },
         {
-          time: "10:05 AM",
+          time: "10:10 AM",
           matches: [
             { court: 1,
-              team1: { players: "Vicki Townsend & Holly Conyers", teamName: "Dinkin Divas" },
-              team2: { players: "Cole Ivison & Nomar Gomez", teamName: null } },
-            { court: 2,
-              team1: { players: "Ashur Tellez & John Brus", teamName: "Moose and Ashur" },
-              team2: { players: "Annika Armendariz & Connor Hendricks", teamName: "Court Crushers" } },
-            { court: 3,
-              team1: { players: "Maverick Torres & Eddie Herrera", teamName: "PFPB" },
+              team1: { players: "Angel Ramos & Angel Flores", teamName: "Angel x2" },
               team2: { players: "Luii & Servando Olivas", teamName: "Surfers" } }
           ]
-        },
-        {
-          time: "10:45 AM",
-          matches: [
-            { court: 1,
-              team1: { players: "Daniel Montoya & Jonathan Figueroa", teamName: "Shake n Bake" },
-              team2: { players: "Trace Garcia & Jace Mcgrough", teamName: null } }
-          ]
         }
+      ],
+      // Teams that skip Round 1 and advance straight to Round 2.
+      byes: [
+        { players: "JP Espinosa & Marc Espinosa", teamName: "Tickle My Pickle" },
+        { players: "Joe Barnes & Bryce Vasquez", teamName: null },
+        { players: "Selena Martinez & Aaron Wiederstein", teamName: null },
+        { players: "Hayden Loewen & Corbyn Neufeld", teamName: null },
+        { players: "Rylee Ortiz & Jackson Ortiz", teamName: "Team Ortiz" },
+        { players: "Kyle Covington & Ethan Polendo", teamName: "shreks goons" },
+        { players: "Cole Ivison & Nomar Gomez", teamName: null },
+        { players: "Annika Armendariz & Connor Hendricks", teamName: "Court Crushers" },
+        { players: "Simon Rivero & Aaron Franco", teamName: null }
       ]
     },
 
