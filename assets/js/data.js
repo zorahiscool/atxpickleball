@@ -119,7 +119,7 @@ const TOURNAMENTS = [
    {
     id: "jb-tournment",
     name: "JB Productions Tournament",
-    status: "upcoming",
+    status: "completed",
     date: "2026-08-08",
     dateDisplay: "August 8, 2026",
     location: "Andrews, TX Pickleball Courts",
@@ -136,71 +136,23 @@ const TOURNAMENTS = [
        "All other rules can be found on the Rules page at the top right of the website.\n\n" +
        "Please reach out if you have any questions!",
 
-    // ---- FIRST-ROUND SCHEDULE -------------------------------------
-    // 23 teams isn't a clean bracket size, so this round uses byes (see
-    // HOW-TO-UPDATE.md — "byes" is a list below "rounds" for teams that
-    // skip straight to Round 2). Round 1 is mostly same-skill matchups
-    // (Beginner vs Beginner, Intermediate vs Intermediate) with one
-    // Advanced-vs-Intermediate match — never Beginner vs Advanced.
-    schedule: {
-      note: "Round 1 only — after this, follow your bracket on Scoreholio for your next match, time, and court.",
-      rounds: [
-        {
-          time: "9:00 AM",
-          matches: [
-            { court: 1,
-              team1: { players: "Justin Bailey & Jordyn Bailey", teamName: "JB Productions" },
-              team2: { players: "Cedar Recker & Rylan Reames", teamName: null } },
-            { court: 2,
-              team1: { players: "Julian Mancillas & Gehrig Morris", teamName: "Ballhards" },
-              team2: { players: "Vicki Townsend & Holly Conyers", teamName: "Dinkin Divas" } },
-            { court: 3,
-              team1: { players: "Ashur Tellez & John Brus", teamName: "Moose and Ashur" },
-              team2: { players: "Maverick Torres & Eddie Herrera", teamName: "PFPB" } }
-          ]
-        },
-        {
-          time: "9:35 AM",
-          matches: [
-            { court: 1,
-              team1: { players: "Daniel Montoya & Jonathan Figueroa", teamName: "Shake n Bake" },
-              team2: { players: "Trace Garcia & Jace Mcgrough", teamName: null } },
-            { court: 2,
-              team1: { players: "Brycen Diaz & Juan Hernandez", teamName: "Pickle Ticklers" },
-              team2: { players: "Xavior Kidd & Justin Moore", teamName: "Slept On" } },
-            { court: 3,
-              team1: { players: "Danny Delgado & Joshua Delgado", teamName: "Team Delgado" },
-              team2: { players: "Milo Sellers & Dax Morgan", teamName: null } }
-          ]
-        },
-        {
-          time: "10:10 AM",
-          matches: [
-            { court: 1,
-              team1: { players: "Angel Ramos & Angel Flores", teamName: "Angel x2" },
-              team2: { players: "Luii & Servando Olivas", teamName: "Surfers" } }
-          ]
-        }
-      ],
-      // Teams that skip Round 1 and advance straight to Round 2.
-      byes: [
-        { players: "JP Espinosa & Marc Espinosa", teamName: "Tickle My Pickle" },
-        { players: "Joe Barnes & Bryce Vasquez", teamName: null },
-        { players: "Selena Martinez & Aaron Wiederstein", teamName: null },
-        { players: "Hayden Loewen & Corbyn Neufeld", teamName: null },
-        { players: "Rylee Ortiz & Jackson Ortiz", teamName: "Team Ortiz" },
-        { players: "Kyle Covington & Ethan Polendo", teamName: "shreks goons" },
-        { players: "Cole Ivison & Nomar Gomez", teamName: null },
-        { players: "Annika Armendariz & Connor Hendricks", teamName: "Court Crushers" },
-        { players: "Simon Rivero & Aaron Franco", teamName: null }
-      ]
-    },
-
     results: {
       summary: "",
-      champions: null,   // { team: "...", players: ["...", "..."], photo: "assets/img/results/your-id/first.jpg" }
-      runnerUp: null,    // { team: "...", players: ["...", "..."], photo: "assets/img/results/your-id/second.jpg" }
-      thirdPlace: null,  // { team: "...", players: ["...", "..."], photo: "assets/img/results/your-id/third.jpg" }
+      champions: {
+        team: null,
+        players: ["Kayley Jennings", "Aaron Wiederstein"],
+        photo: null   // add later, e.g. "assets/img/results/jb-tournment/first.jpg"
+      },
+      runnerUp: {
+        team: "Pickle Ticklers",
+        players: ["Brycen Diaz", "Juan Hernandez"],
+        photo: null   // add later, e.g. "assets/img/results/jb-tournment/second.jpg"
+      },
+      thirdPlace: {
+        team: "Angel x2",
+        players: ["Angel Ramos", "Angel Flores"],
+        photo: null   // add later, e.g. "assets/img/results/jb-tournment/third.jpg"
+      },
       standings: [],     // extra placements beyond top 3, e.g. [{ place: 4, team: "...", players: ["...", "..."] }]
       bracketImageUrl: null,
       photosUrl: null
